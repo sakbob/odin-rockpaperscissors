@@ -55,7 +55,7 @@ function playGame() {
             return "You win! Paper beats Rock!"
         }
         else if (computerChoice === "SCISSORS" && humanChoice === "PAPER") {
-            computerChoice++;
+            computerScore++;
             return "You lose! Scissors beats Paper!";
         }
         else if (computerChoice === "PAPER" && humanChoice === "SCISSORS") {
