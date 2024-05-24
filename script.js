@@ -66,7 +66,9 @@ function checkGame(humanResponse) {
 
     let computerResponse = getComputerChoice();
 
-    console.log(playRound(computerResponse, humanResponse));
+    eventDisplay.textContent = playRound(computerResponse, humanResponse);
+    computerDisplay.textContent = "Computer Score: " + computerScore;
+    humanDisplay.textContent = "Your Score: " + humanScore;
 
     if (computerScore === 5) {
         winnerText = "Computer Wins, Try again!";
@@ -92,19 +94,17 @@ let winnerText = "Error";
 console.log("=====================================");
 
 const buttons = document.querySelectorAll("button");
+const computerDisplay = document.querySelector(".score-computer");
+const humanDisplay = document.querySelector(".score-human");
+const eventDisplay = document.querySelector(".event-text");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
         console.log(button.textContent + " was pressed!");
         if (checkGame(button.textContent) === true) {
-            console.log(winnerText);
-            console.log("Game Over!");
+            eventDisplay.textContent = winnerText;
             i = 1;
             toReturn = "Error";
-        }
-        else {
-            console.log("Your Score: " + humanScore);
-            console.log("Computer Score: " + computerScore);
         }
         console.log("=====================================");
     })
