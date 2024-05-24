@@ -62,7 +62,7 @@ function playRound(computerChoice, humanChoice) {
 }
 
 function checkGame(humanResponse) {
-    console.log("Round: " + (i));
+    eventRound.textContent = "Round: " + (i);
 
     let computerResponse = getComputerChoice();
 
@@ -91,12 +91,12 @@ function checkGame(humanResponse) {
 
 let i = 1;
 let winnerText = "Error";
-console.log("=====================================");
 
 const buttons = document.querySelectorAll("button");
 const computerDisplay = document.querySelector(".score-computer");
 const humanDisplay = document.querySelector(".score-human");
 const eventDisplay = document.querySelector(".event-text");
+const eventRound = document.querySelector(".event-round");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
@@ -104,8 +104,7 @@ buttons.forEach(button => {
         if (checkGame(button.textContent) === true) {
             eventDisplay.textContent = winnerText;
             i = 1;
-            toReturn = "Error";
+            winnerText = "Error";
         }
-        console.log("=====================================");
     })
 })
